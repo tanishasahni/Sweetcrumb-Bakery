@@ -6,12 +6,17 @@
   <title>SweetCrumbs Bakery | Custom Order Form</title>
 
   <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
     body {
         font-family: sans-serif;
         background-color: #ffffff;
         color: #333333;
         font-size: 16px;
         line-height: 1.6;
+        margin: 0;
     }
 
     header {
@@ -157,13 +162,24 @@
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
+      background: #fdf5e6; 
+      padding: 10px;
+      text-decoration: none; 
+      color: #5d4037; 
+      font-weight: bold;
+      padding: 20px 30px;
+    }
+
+    footer a {
+      color: #5d4037;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
     footer p {
-      margin: 5px;
+      color: #8d6e63;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -274,8 +290,9 @@
   </main>
 
   <!-- Footer -->
-  <footer>
-    <p>SweetCrumbs Bakery</p>
+  <footer class="footer">
+    <a href="index.html">SweetCrumbs Bakery</a>
+    <p><br>Address</p>
   </footer>
 
   <!-- Validate form -->
