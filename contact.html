@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>SweetCrumbs Bakery | Contact Us</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body {
+                margin: 0;
+            }
+
+            header {
+                padding: 20px;
+                text-align: center;
+            }
+
+            header h1 {
+                margin: 0;
+                font-size: 2em;
+                margin-bottom: 20px;
+
+            }
+            
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin: 0 15px;
+                text-decoration: none;
+            }
+
+            nav a:hover {
+                background-color: #d8d8d8;
+                border-radius: 4px;
+            }
+
+            main {
+                padding: 50px 10%;
+            }
+
+            h2 {
+                margin-top: 0;
+            }
+
+            .contact {
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 40px;
+            }
+
+            .contact h2 {
+                margin-top: 0;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+
+            .contact p {
+                margin-top: 0;
+                margin-bottom: 30px;
+                line-height: 1.6;
+                text-align: center;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            label {
+                font-weight: bold;
+            }
+
+            input, textarea {
+                padding: 10px;
+                font-size: 1rem;
+                border-radius: 5px;
+                border: 1px solid #000000;
+                width: 100%;
+
+            }
+
+            textarea {
+                resize: vertical;
+            }
+
+            .submit-button {
+                border: solid;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 200px;
+                padding: 8px 12px;
+                font-size: large;
+            }
+
+            .submit-button:hover {
+                background-color: #9a9ea0;
+            }
+
+            footer {
+                text-align: center;
+                padding: 20px;
+                margin-top: 50px;
+            }
+
+            footer p {
+                margin: 5px
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>SweetCrumbs Bakery</h1>
+            <nav>
+                <a href ="index.html">Home</a>
+                <a href ="menu.html">Menu</a>
+                <a href ="order.html">Custom Order Form</a>
+                <a href ="about.html">About Us + Team</a>
+                <a href ="events.html">Events & Catering</a>
+                <a href ="faq.html">FAQ</a>
+                <a href ="contact.html">Contact Us</a>
+            </nav>
+        </header>
+
+        <main class="contact">
+            <h2>Contact Us</h2>
+            <p>Have a question about an order, baked good, or upcoming event?
+                We would love to hear from you! <br>Fill out the form below and we will get
+                back to you as soon as possible.</p>
+
+            <form action="#" method="GET">
+                <div>
+                    <label for="name"> Name</label><br>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+
+                <div>
+                    <label for="email"> Email</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div>
+                    <label for="message"> Message</label><br>
+                    <textarea id="message" name="message" rows="10"
+                        placeholder="Tell us how we can help you..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </main>
+
+        <footer class="footer">
+            <p>SweetCrumbs Bakery <br> Address</p>
+        </footer>
+    </body>
+</html>
