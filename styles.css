@@ -1,9 +1,9 @@
 * {
-    font-family: sans-serif; 
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;
 }
+
 body {
+    font-family: sans-serif;
     background-color: #ffffff;
     color: #333333;
     font-size: 16px;
@@ -46,12 +46,10 @@ header nav ul li a:hover {
 }
 
 footer {
-    background: #fdf5e6; 
-    padding: 10px;
-    text-decoration: none; 
-    color: #5d4037; 
-    font-weight: bold;
+    background: #fdf5e6;
     padding: 20px 30px;
+    color: #5d4037;
+    font-weight: bold;
 }
 
 footer a {
