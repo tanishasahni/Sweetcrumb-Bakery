@@ -8,31 +8,45 @@
                 font-family: sans-serif; 
             }
             body {
-                line-height: 1.6; 
-                margin: 0; 
-                color: #333;
+                font-family: sans-serif;
+                background-color: #ffffff;
+                color: #333333;
+                font-size: 16px;
+                line-height: 1.6;
             }
 
             header {
-                background: #fdf5e6; 
-                padding: 20px; 
-                text-align: center;
-            }
-            
-            nav {
-                margin-top: 10px;
+                background: #fdf5e6;
+                padding: 20px 30px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
             }
 
-            nav a {
-                margin: 0 15px; 
-                text-decoration: none; 
-                color: #5d4037; 
+            header .logo a {
+                font-size: 1.6rem;
+                font-weight: bold;
+                text-decoration: none;
+                color: #5d4037;
+            }
+
+            header nav ul {
+                list-style: none;
+            }
+
+            header nav ul li {
+                display: inline;
+                margin-left: 20px;
+            }
+
+            header nav ul li a {
+                text-decoration: none;
+                color: #5d4037;
                 font-weight: bold;
             }
 
-            nav a:hover {
-                background-color: #d8d8d8;
-                border-radius: 4px;
+            header nav ul li a:hover {
+                text-decoration: underline;
             }
 
             main {
@@ -86,15 +100,19 @@
 
     <body>
         <header>
-            <h1>SweetCrumbs Bakery</h1>
+            <div class="logo">
+              <a href="index.html">SweetCrumbs Bakery</a>
+            </div>
             <nav>
-                <a href ="index.html">Home</a>
-                <a href ="menu.html">Menu</a>
-                <a href ="order.html">Custom Order Form</a>
-                <a href ="about.html">About</a>
-                <a href ="events.html">Events & Catering</a>
-                <a href ="faq.html">FAQ</a>
-                <a href ="contact.html">Contact</a>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="order.html">Custom Order Form</a></li>
+                <li><a href="about.html">About Us + Team</a></li>
+                <li><a href="events.html">Events &amp; Catering</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+              </ul>
             </nav>
         </header>
 

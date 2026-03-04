@@ -7,32 +7,45 @@
 
   <style>
     body {
-      margin: 0;
-      font-family: sans-serif;
-      line-height: 1.6;
-      color: #333;
+        font-family: sans-serif;
+        background-color: #ffffff;
+        color: #333333;
+        font-size: 16px;
+        line-height: 1.6;
     }
 
     header {
-      padding: 20px;
-      text-align: center;
+        background: #fdf5e6;
+        padding: 20px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    header h1 {
-      margin: 0 0 10px 0;
-      font-size: 2em;
+    header .logo a {
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #5d4037;
     }
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #5d4037;
-      font-weight: bold;
+    header nav ul {
+        list-style: none;
     }
 
-    nav a:hover {
-      background-color: #d8d8d8;
-      border-radius: 4px;
+    header nav ul li {
+        display: inline;
+        margin-left: 20px;
+    }
+
+    header nav ul li a {
+        text-decoration: none;
+        color: #5d4037;
+        font-weight: bold;
+    }
+
+    header nav ul li a:hover {
+        text-decoration: underline;
     }
 
     main {
@@ -158,17 +171,21 @@
 
   <!-- HEADER -->
   <header>
-    <h1>SweetCrumbs Bakery</h1>
+    <div class="logo">
+      <a href="index.html">SweetCrumbs Bakery</a>
+    </div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="order.html">Custom Order Form</a>
-      <a href="about.html">About Us + Team</a>
-      <a href="events.html">Events &amp; Catering</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact Us</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html">Custom Order Form</a></li>
+        <li><a href="about.html">About Us + Team</a></li>
+        <li><a href="events.html">Events &amp; Catering</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
     </nav>
-  </header>
+</header>
 
   <!-- Order form -->
   <main>

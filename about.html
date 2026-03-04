@@ -3,9 +3,47 @@
     <title>SweetCrumbs Bakery | About Us</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; color: hsl(0, 0%, 20%); }
-        header { background: #fdf5e6; padding: 20px; text-align: center; }
-        nav a { margin: 0 15px; text-decoration: none; color: #5d4037; font-weight: bold; }
+        body {
+                font-family: sans-serif;
+                background-color: #ffffff;
+                color: #333333;
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            header {
+                background: #fdf5e6;
+                padding: 20px 30px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            header .logo a {
+                font-size: 1.6rem;
+                font-weight: bold;
+                text-decoration: none;
+                color: #5d4037;
+            }
+
+            header nav ul {
+                list-style: none;
+            }
+
+            header nav ul li {
+                display: inline;
+                margin-left: 20px;
+            }
+
+            header nav ul li a {
+                text-decoration: none;
+                color: #5d4037;
+                font-weight: bold;
+            }
+
+            header nav ul li a:hover {
+                text-decoration: underline;
+            }
         
         .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
         .about-text { text-align: center; margin-bottom: 60px; }
@@ -33,15 +71,19 @@
 <body>
 
     <header>
-        <h1>SweetCrumbs</h1>
+        <div class="logo">
+          <a href="index.html">SweetCrumbs Bakery</a>
+        </div>
         <nav>
-            <a href ="index.html">Home</a>
-            <a href ="menu.html">Menu</a>
-            <a href ="order.html">Custom Order Form</a>
-            <a href ="about.html">About</a>
-            <a href ="events.html">Events & Catering</a>
-            <a href ="faq.html">FAQ</a>
-            <a href ="contact.html">Contact</a>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="order.html">Custom Order Form</a></li>
+            <li><a href="about.html">About Us + Team</a></li>
+            <li><a href="events.html">Events &amp; Catering</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
         </nav>
     </header>
 
