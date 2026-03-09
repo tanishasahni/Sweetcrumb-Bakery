@@ -1,4 +1,4 @@
-/* Design tokens */
+/* Design */
 :root {
   --bg: #fffdfb;
   --text: #1e1a17;
@@ -11,7 +11,7 @@
   --border: rgba(93, 64, 55, 0.16);
   --ring: rgba(202, 166, 138, 0.55);
   --font-sans: Georgia, 'Times New Roman', serif;
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-display: Georgia, serif;
   --radius-sm: 10px;
   --radius-md: 14px;
   --container: 1100px;
@@ -27,7 +27,7 @@ body {
   font-size: 16px;
   line-height: 1.65;
   margin: 0;
-  padding-top: 88px; /* JS adjusts precisely for fixed header height */
+  padding-top: 88px;
 }
 
 /* Typography */
@@ -52,7 +52,7 @@ h3 {
 p { color: var(--muted); }
 a { color: inherit; }
 
-/* Layout helpers (containers, spacing, alignment) */
+/* Layout (containers, spacing, alignment) */
 .container {
   max-width: var(--container);
   margin: 0 auto;
@@ -61,10 +61,8 @@ a { color: inherit; }
 .container--narrow { max-width: 860px; }
 .section { margin: 0 0 44px; }
 .center { text-align: center; }
-/* Simple spacing utilities (used sparingly) */
 .mt-lg { margin-top: 26px; }
 
-/* Surfaces */
 .panel,
 .card,
 .note-box,
@@ -115,7 +113,7 @@ a { color: inherit; }
   }
 }
 
-/* Header + primary nav */
+/* Header */
 header {
   position: fixed;
   top: 0;
@@ -250,7 +248,6 @@ header nav a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px
   font-weight: 700;
 }
 
-/* Utility components */
 .chip {
   border: 1px solid var(--border);
   background: var(--paper-2);
@@ -299,7 +296,7 @@ header nav a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px
 
 .section-title.is-centered { text-align: center; }
 
-/* Hero (home + page variants) */
+/* Hero */
 .hero,
 .page-hero {
   position: relative;
@@ -342,7 +339,7 @@ header nav a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px
   margin-top: 18px;
 }
 
-/* The "See Menu" button in the hero should be white, not brown */
+/* See Menu Button in Hero */
 .hero-actions .btn--secondary {
   background: rgba(255, 255, 255, 0.90);
   color: var(--brand);
@@ -353,7 +350,7 @@ header nav a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px
   background: rgba(255, 255, 255, 0.70);
 }
 
-/* Home: featured items + testimonials */
+/* Featured items + customer reviews */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -393,7 +390,7 @@ ul.reasons li {
   color: var(--muted);
 }
 
-/* Menu page (filters + item cards) */
+/* Menu page (filters and item cards) */
 .menu-controls {
   display: flex;
   flex-wrap: wrap;
@@ -403,7 +400,7 @@ ul.reasons li {
   margin: 10px 0 22px;
 }
 
-/* Team grid (about page) */
+/* Team */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -433,7 +430,7 @@ ul.reasons li {
   font-weight: 800;
 }
 
-/* Menu page cards */
+/* Menu page */
 .menu-grid {
   display: flex;
   flex-wrap: wrap;
@@ -482,7 +479,7 @@ ul.reasons li {
   white-space: nowrap;
 }
 
-/* Forms (shared) */
+/* Forms */
 .form {
   display: grid;
   gap: 14px;
@@ -528,7 +525,6 @@ ul.reasons li {
   font-weight: 700;
 }
 
-/* Checkbox/radio groups */
 .choice-row {
   display: flex;
   gap: 14px;
@@ -585,7 +581,7 @@ ul.reasons li {
   .contact-layout { grid-template-columns: 1fr; }
 }
 
-/* FAQ accordion */
+/* FAQ */
 .faq-accordion { border-top: 1px solid rgba(93, 64, 55, 0.16); width: 100%; }
 .accordion-item { border-bottom: 1px solid rgba(93, 64, 55, 0.16); width: 100%; }
 .accordion-header { margin: 0; }
@@ -643,7 +639,6 @@ ul.reasons li {
 .accordion-panel { padding: 0 6px 16px; }
 .accordion-panel p { margin: 0; color: var(--muted); line-height: 1.6; }
 
-/* Note boxes */
 .note-box h3 { margin-top: 0; }
 .note-box p { margin: 0; }
 
@@ -680,8 +675,7 @@ ul.reasons li {
   .container { padding: 24px 14px 40px; }
   h1 { font-size: 1.7rem; }
 }
-/* ---- Sticky footer fix ----
-   Makes the footer stick to the bottom even when there isn't much content on the page */
+/* Makes the footer stick to the bottom */
 .sticky-footer-page {
   display: flex;
   flex-direction: column;
@@ -692,26 +686,18 @@ ul.reasons li {
   flex: 1;
 }
 
-/* ---- Bigger menu cards ----
-   The image was getting cut off so we made the height taller */
+/* Bigger menu cards */
 .menu-card img {
   height: 220px;
 }
 
-/* ---- Make sure footer goes full width on menu page ----
-   The menu grid was causing it to float */
+/* Make sure footer goes full width on the screen */
 .menu-grid + .footer,
 .footer {
   width: 100%;
 }
 
-/* ---- Contact page: visit card on LEFT, form on RIGHT ----
-   We flip the column order so "Visit the Bakery" comes first */
-.contact-layout {
-  grid-template-columns: 0.9fr 1.1fr;
-}
-
-/* ---- Center the grid sections on the home page ---- */
+/* Center grid on the home page */
 .grid-3 {
   justify-items: center;
 }
@@ -722,10 +708,4 @@ ul.reasons li {
 
 .item-col .item-text {
   text-align: center;
-}
-
-/* Prevent the open accordion button from showing a box outline */
-.accordion-trigger[aria-expanded="true"] {
-  background: transparent;
-  outline: none;
 }
