@@ -686,11 +686,6 @@ ul.reasons li {
   flex: 1;
 }
 
-/* Bigger menu cards */
-.menu-card img {
-  height: 220px;
-}
-
 /* Make sure footer goes full width on the screen */
 .menu-grid + .footer,
 .footer {
