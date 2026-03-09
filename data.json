@@ -8,7 +8,7 @@
     },
     {
       "name": "Triple Chocolate Cake",
-      "description": "Three layers of rich chocolate with ganache frosting. A showstopper.",
+      "description": "Three layers of rich chocolate with ganache frosting.",
       "image": "images/placeholder-food.svg",
       "alt": "Chocolate cake (placeholder image)"
     },
@@ -99,10 +99,10 @@
       "alt": "Cupcake (placeholder image)"
     },
     {
-      "name": "Celebration Cake (8-inch)",
+      "name": "Triple Chocolate Cake",
       "price": "$48+",
       "category": "cakes",
-      "desc": "Custom colors + message available.",
+      "desc": "Three layers of rich chocolate with ganache frosting.",
       "image": "images/placeholder-food.svg",
       "alt": "Celebration cake (placeholder image)"
     }
