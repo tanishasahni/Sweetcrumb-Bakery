@@ -12,7 +12,7 @@
   --paper-2: #fffaf5;
   --border: rgba(93, 64, 55, 0.16);
   --ring: rgba(202, 166, 138, 0.55);
-  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-sans: Georgia, 'Times New Roman', serif;
   --font-display: "Fraunces", ui-serif, Georgia, serif;
   --radius-sm: 10px;
   --radius-md: 14px;
