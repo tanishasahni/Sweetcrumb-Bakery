@@ -102,18 +102,19 @@
 
   <!-- Accordion behavior -->
   <script>
-    // Two helper functions — one to close a question, one to open it
+    // Close a question
     function closeAccordionItem(trigger, panel) {
       trigger.setAttribute("aria-expanded", "false");
       panel.hidden = true;
     }
-
+    
+    // Open a question
     function openAccordionItem(trigger, panel) {
       trigger.setAttribute("aria-expanded", "true");
       panel.hidden = false;
     }
 
-    // Sets up one accordion section (the whole FAQ list)
+    // Whole FAQ list
     function setupAccordion(accordionEl) {
       var onlyOneOpen = accordionEl.getAttribute("data-accordion") === "single";
       var triggers = accordionEl.querySelectorAll(".accordion-trigger[aria-controls]");
@@ -121,8 +122,7 @@
       // Loop through each FAQ question button
       for (var i = 0; i < triggers.length; i++) {
 
-        // We use an immediately-called function here so each button
-        // remembers its own "trigger" variable correctly
+        // Use immediately-called function so each button remembers its trigger variable
         (function(trigger) {
           var panelId = trigger.getAttribute("aria-controls");
           var panel = panelId ? document.getElementById(panelId) : null;
