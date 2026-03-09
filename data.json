@@ -43,14 +43,6 @@
       "alt": "Butter croissant (placeholder image)"
     },
     {
-      "name": "Almond Croissant",
-      "price": "$4.75",
-      "category": "pastries",
-      "desc": "Toasted almonds + almond cream.",
-      "image": "images/placeholder-food.svg",
-      "alt": "Almond croissant (placeholder image)"
-    },
-    {
       "name": "Cinnamon Roll",
       "price": "$4.95",
       "category": "pastries",
@@ -91,7 +83,7 @@
       "alt": "Brownie (placeholder image)"
     },
     {
-      "name": "Signature Cupcake (single)",
+      "name": "Vanilla Cupcake (single)",
       "price": "$3.95",
       "category": "cakes",
       "desc": "Vanilla or chocolate with buttercream.",
