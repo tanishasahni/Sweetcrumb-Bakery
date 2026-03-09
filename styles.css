@@ -1,4 +1,4 @@
-/* Design */
+/* Design tokens */
 :root {
   --bg: #fffdfb;
   --text: #1e1a17;
@@ -52,7 +52,7 @@ h3 {
 p { color: var(--muted); }
 a { color: inherit; }
 
-/* Layout (containers, spacing, alignment) */
+/* Layout */
 .container {
   max-width: var(--container);
   margin: 0 auto;
@@ -63,6 +63,7 @@ a { color: inherit; }
 .center { text-align: center; }
 .mt-lg { margin-top: 26px; }
 
+/* Card components */
 .panel,
 .card,
 .note-box,
@@ -105,6 +106,7 @@ a { color: inherit; }
 
 
 
+/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .card:hover,
   .menu-card:hover,
@@ -129,6 +131,7 @@ header {
   border-bottom: 1px solid rgba(93, 64, 55, 0.10);
 }
 
+/* Backdrop blur support */
 @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
   header {
     -webkit-backdrop-filter: blur(12px);
@@ -194,6 +197,7 @@ header nav a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px
   padding: 10px 16px;
   border-radius: 999px;
   border: 1px solid transparent;
+  font-family: inherit;
   font-weight: 800;
   text-decoration: none;
   cursor: pointer;
@@ -248,10 +252,12 @@ header nav a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px
   font-weight: 700;
 }
 
+/* Filter chips */
 .chip {
   border: 1px solid var(--border);
   background: var(--paper-2);
   color: var(--brand);
+  font-family: inherit;
   font-weight: 800;
   padding: 8px 12px;
   border-radius: 999px;
@@ -264,6 +270,7 @@ header nav a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px
   border-color: var(--brand);
 }
 
+/* Back to top button */
 .back-to-top {
   position: fixed;
   right: 18px;
@@ -271,6 +278,7 @@ header nav a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px
   border: 1px solid var(--border);
   background: var(--paper);
   color: var(--brand);
+  font-family: inherit;
   font-weight: 900;
   padding: 10px 12px;
   border-radius: 999px;
@@ -296,101 +304,14 @@ header nav a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px
 
 .section-title.is-centered { text-align: center; }
 
-/* Hero */
-.hero,
-.page-hero {
-  position: relative;
-  isolation: isolate;
-  text-align: center;
-  color: #fff;
-  padding: clamp(56px, 8vw, 96px) 0;
-  background: radial-gradient(1200px 400px at 20% -10%, rgba(255, 255, 255, 0.22), transparent 60%),
-    linear-gradient(135deg, rgba(93, 64, 55, 0.96), rgba(141, 110, 99, 0.70)),
-    url("images/hero-bg.svg");
-  background-size: cover;
-  background-position: center;
-}
-
-.hero .container,
-.page-hero .container {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.hero h1,
-.page-hero h1 {
-  margin: 0 0 10px;
-  color: #fff;
-  text-shadow: none;
-}
-
-.hero p,
-.page-hero p {
-  margin: 0 auto 18px;
-  max-width: 70ch;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 18px;
-}
-
-/* See Menu Button in Hero */
-.hero-actions .btn--secondary {
-  background: rgba(255, 255, 255, 0.90);
-  color: var(--brand);
-  border-color: rgba(255, 255, 255, 0.40);
-}
-
-.hero-actions .btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.70);
-}
-
-/* Featured items + customer reviews */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.item-col {
-  overflow: hidden;
-  text-align: left;
-  transition: transform 140ms ease;
-}
-
-.item-col img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-}
-
-.item-col .item-text { padding: 14px 14px 16px; }
-
+/* Divider */
 hr {
   border: none;
   border-top: 1px solid rgba(93, 64, 55, 0.14);
   margin: 34px 0;
 }
 
-ul.reasons {
-  list-style: disc;
-  display: inline-block;
-  text-align: left;
-  padding-left: 20px;
-}
-
-ul.reasons li {
-  margin-bottom: 8px;
-  color: var(--muted);
-}
-
-/* Menu page (filters and item cards) */
+/* Menu controls */
 .menu-controls {
   display: flex;
   flex-wrap: wrap;
@@ -400,7 +321,7 @@ ul.reasons li {
   margin: 10px 0 22px;
 }
 
-/* Team */
+/* Team grid */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -430,7 +351,7 @@ ul.reasons li {
   font-weight: 800;
 }
 
-/* Menu page */
+/* Menu grid */
 .menu-grid {
   display: flex;
   flex-wrap: wrap;
@@ -552,7 +473,7 @@ ul.reasons li {
 .checkline input { width: auto; }
 .checkline label { font-weight: 700; color: var(--text); }
 
-/* Contact page layout */
+/* Contact layout */
 .subhead {
   text-align: center;
   color: var(--muted);
@@ -577,11 +498,27 @@ ul.reasons li {
 
 .small-muted { color: var(--muted); font-size: 0.92rem; margin: 0; }
 
+/* In-content links */
+.card a,
+.panel a,
+.note-box a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.card a:hover,
+.panel a:hover,
+.note-box a:hover {
+  color: var(--brand-2);
+}
+
+/* Contact stack on narrow */
 @media (max-width: 820px) {
   .contact-layout { grid-template-columns: 1fr; }
 }
 
-/* FAQ */
+/* FAQ accordion */
 .faq-accordion { border-top: 1px solid rgba(93, 64, 55, 0.16); width: 100%; }
 .accordion-item { border-bottom: 1px solid rgba(93, 64, 55, 0.16); width: 100%; }
 .accordion-header { margin: 0; }
@@ -642,15 +579,14 @@ ul.reasons li {
 .note-box h3 { margin-top: 0; }
 .note-box p { margin: 0; }
 
-/* Responsive */
-/* Tablet - 2 columns for menu, stack some layouts */
+/* Responsive - tablet */
 @media (max-width: 900px) {
   .menu-grid { justify-content: center; }
   .menu-card { width: calc(50% - 8px); }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Smaller tablet / large phone */
+/* Responsive - small tablet */
 @media (max-width: 760px) {
   body { padding-top: 112px; }
   header { align-items: flex-start; flex-direction: column; }
@@ -659,7 +595,7 @@ ul.reasons li {
   .contact-layout { grid-template-columns: 1fr; }
 }
 
-/* Mobile phone */
+/* Responsive - mobile */
 @media (max-width: 500px) {
   .menu-card { width: 100%; }
   .team-grid { grid-template-columns: 1fr; }
@@ -667,15 +603,15 @@ ul.reasons li {
   .hero-actions .btn { width: 100%; max-width: 260px; }
 }
 
-/* Small phones down to 400px */
-@media (max-width: 420px) {
+/* Responsive - small phone (down to 400px) */
+@media (max-width: 400px) {
   header { padding: 12px 12px; }
   header .logo a { font-size: 1.25rem; }
   header nav ul { gap: 10px; }
   .container { padding: 24px 14px 40px; }
   h1 { font-size: 1.7rem; }
 }
-/* Makes the footer stick to the bottom */
+/* Sticky footer layout */
 .sticky-footer-page {
   display: flex;
   flex-direction: column;
@@ -686,13 +622,13 @@ ul.reasons li {
   flex: 1;
 }
 
-/* Make sure footer goes full width on the screen */
+/* Footer full width */
 .menu-grid + .footer,
 .footer {
   width: 100%;
 }
 
-/* Center grid on the home page */
+/* Center grid on home */
 .grid-3 {
   justify-items: center;
 }
