@@ -1,0 +1,110 @@
+{
+  "featuredItems": [
+    {
+      "name": "Butter Croissant",
+      "description": "Golden, flaky, and buttery — our most popular morning pastry.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Butter croissant (placeholder image)"
+    },
+    {
+      "name": "Triple Chocolate Cake",
+      "description": "Three layers of rich chocolate with ganache frosting. A showstopper.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Chocolate cake (placeholder image)"
+    },
+    {
+      "name": "Vanilla Cupcakes",
+      "description": "Fluffy vanilla cupcakes topped with buttercream and rainbow sprinkles.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Vanilla cupcakes (placeholder image)"
+    }
+  ],
+  "reviews": [
+    {
+      "quote": "The birthday cake I ordered was absolutely stunning and tasted even better than it looked. My daughter was thrilled!",
+      "author": "Sarah M."
+    },
+    {
+      "quote": "I stop in every Tuesday for a croissant and lavender latte. Best bakery in Maplewood, hands down.",
+      "author": "James T."
+    },
+    {
+      "quote": "Their sourdough bread is the real deal. I haven't bought bread from the grocery store since I discovered Sweet Crumb.",
+      "author": "Linda R."
+    }
+  ],
+  "menuItems": [
+    {
+      "name": "Butter Croissant",
+      "price": "$4.25",
+      "category": "pastries",
+      "desc": "Flaky layers, baked fresh daily.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Butter croissant (placeholder image)"
+    },
+    {
+      "name": "Almond Croissant",
+      "price": "$4.75",
+      "category": "pastries",
+      "desc": "Toasted almonds + almond cream.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Almond croissant (placeholder image)"
+    },
+    {
+      "name": "Cinnamon Roll",
+      "price": "$4.95",
+      "category": "pastries",
+      "desc": "Brown sugar swirl, vanilla glaze.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Cinnamon roll (placeholder image)"
+    },
+    {
+      "name": "Sourdough Loaf",
+      "price": "$8.00",
+      "category": "bread",
+      "desc": "Naturally leavened, 24-hour ferment.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Sourdough loaf (placeholder image)"
+    },
+    {
+      "name": "Rosemary Focaccia",
+      "price": "$6.50",
+      "category": "bread",
+      "desc": "Olive oil, flaky salt, rosemary.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Rosemary focaccia (placeholder image)"
+    },
+    {
+      "name": "Chocolate Chip Cookie",
+      "price": "$2.75",
+      "category": "treats",
+      "desc": "Crisp edges, soft center.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Chocolate chip cookie (placeholder image)"
+    },
+    {
+      "name": "Brownie (GF option)",
+      "price": "$3.75",
+      "category": "treats",
+      "desc": "Fudgy + rich. Ask about gluten-free.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Brownie (placeholder image)"
+    },
+    {
+      "name": "Signature Cupcake (single)",
+      "price": "$3.95",
+      "category": "cakes",
+      "desc": "Vanilla or chocolate with buttercream.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Cupcake (placeholder image)"
+    },
+    {
+      "name": "Celebration Cake (8-inch)",
+      "price": "$48+",
+      "category": "cakes",
+      "desc": "Custom colors + message available.",
+      "image": "images/placeholder-food.svg",
+      "alt": "Celebration cake (placeholder image)"
+    }
+  ]
+}
