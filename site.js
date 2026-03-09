@@ -1,305 +1,319 @@
-/* Site JavaScript (loaded on every page) */
-(function () {
-  "use strict";
+// SweetCrumbs Bakery - site.js
+// This file runs on every page of the site
 
-  /* =========================================================
-   * Shared helpers (small, reusable building blocks)
-   * ========================================================= */
-  function byId(id) {
-    return document.getElementById(id);
+// ---- Associative array (object used like a dictionary) ----
+// This maps the order form item values to friendly display names
+var itemNames = {
+  "custom-cake": "Custom Cake",
+  "cupcakes": "Cupcakes (Dozen)",
+  "pastry-platter": "Pastry Platter",
+  "bread-assortment": "Bread Assortment",
+  "other": "Custom Request"
+};
+
+// ---- Homegrown object (like a blueprint for a bakery item) ----
+function BakeryItem(name, price, category) {
+  this.name = name;
+  this.price = price;
+  this.category = category;
+
+  this.getLabel = function() {
+    return this.name + " - " + this.price;
+  };
+}
+
+// Example uses of the BakeryItem object
+var featuredCroissant = new BakeryItem("Butter Croissant", "$4.25", "pastries");
+var featuredCake = new BakeryItem("Triple Chocolate Cake", "$48+", "cakes");
+var featuredCupcake = new BakeryItem("Vanilla Cupcake", "$3.95", "cakes");
+
+// ---- Helper functions ----
+
+// Gets an element by its id
+function getById(id) {
+  return document.getElementById(id);
+}
+
+// Shows an element by setting display to block
+function showElement(el) {
+  if (el) {
+    el.style.display = "block";
   }
+}
 
-  function qs(selector, root) {
-    return (root || document).querySelector(selector);
+// Hides an element
+function hideElement(el) {
+  if (el) {
+    el.style.display = "none";
   }
+}
 
-  function qsa(selector, root) {
-    return (root || document).querySelectorAll(selector);
+// Gets the text value from an input and trims spaces
+function getVal(el) {
+  if (el && el.value) {
+    return el.value.trim();
   }
+  return "";
+}
 
-  function trimValue(el) {
-    return el && typeof el.value === "string" ? el.value.trim() : "";
+// Basic check if an email looks valid
+function looksLikeEmail(email) {
+  if (email.indexOf("@") !== -1 && email.indexOf(".") !== -1) {
+    return true;
   }
+  return false;
+}
 
-  function show(el) {
-    if (el) el.style.display = "block";
+// Shows an error message for a form field
+function showError(errorId, message) {
+  var errorEl = getById(errorId);
+  if (errorEl) {
+    errorEl.textContent = message;
+    showElement(errorEl);
   }
+}
 
-  function hide(el) {
-    if (el) el.style.display = "none";
+// Hides an error message
+function clearError(errorId) {
+  hideElement(getById(errorId));
+}
+
+// Figures out what page we're on
+function getCurrentPage() {
+  var path = window.location.pathname;
+  var parts = path.split("/");
+  var pageName = parts[parts.length - 1];
+  if (pageName === "") {
+    pageName = "index.html";
   }
+  return pageName;
+}
 
-  function isProbablyEmail(email) {
-    // Simple check (good enough for friendly client-side validation).
-    return email.indexOf("@") !== -1 && email.indexOf(".") !== -1;
-  }
+// ---- Active nav link ----
+// Highlights the current page in the nav menu
+function markActiveNav() {
+  var currentPage = getCurrentPage();
+  var navLinks = document.querySelectorAll("header nav a");
 
-  function getCurrentPageName() {
-    var path = window.location.pathname;
-    var fileName = path.split("/").pop();
-    return fileName || "index.html";
-  }
-
-  /* =========================================================
-   * Layout + navigation (runs on every page)
-   * ========================================================= */
-  function setBodyOffsetForFixedHeader() {
-    var header = qs("header");
-    if (!header) return;
-
-    var headerStyle = window.getComputedStyle(header);
-    var isFixedLike =
-      headerStyle.position === "fixed" || headerStyle.position === "sticky";
-    if (!isFixedLike) return;
-
-    var height = header.getBoundingClientRect().height;
-    document.body.style.paddingTop = Math.ceil(height) + "px";
-  }
-
-  function markActiveNavLink() {
-    var current = getCurrentPageName();
-    var links = qsa("header nav a[href]");
-
-    for (var i = 0; i < links.length; i++) {
-      var href = links[i].getAttribute("href");
-      if (href === current) links[i].classList.add("active");
+  for (var i = 0; i < navLinks.length; i++) {
+    var link = navLinks[i];
+    var href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("active");
     }
   }
+}
 
-  function addBackToTop() {
-    if (byId("back-to-top")) return;
+// ---- Fix header padding ----
+// Makes sure the page content isn't hidden behind the fixed header
+function fixHeaderPadding() {
+  var header = document.querySelector("header");
+  if (!header) return;
 
-    var button = document.createElement("button");
-    button.type = "button";
-    button.id = "back-to-top";
-    button.className = "back-to-top";
-    button.textContent = "Top";
-    button.style.display = "none";
-    document.body.appendChild(button);
+  var headerHeight = header.getBoundingClientRect().height;
+  document.body.style.paddingTop = Math.ceil(headerHeight) + "px";
+}
 
-    button.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+// ---- Menu page filter buttons ----
+function setupMenuFilters() {
+  var menuGrid = getById("menu-grid");
+  if (!menuGrid) return; // not on menu page, stop here
 
-    window.addEventListener("scroll", function () {
-      button.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-  }
+  var allCards = menuGrid.querySelectorAll(".menu-card");
 
-  /* Contact page (contact.html) */
-  function initContactPage() {
-    var form = byId("contact-form");
-    if (!form) return;
-
-    function setErrorText(errorId, message) {
-      var el = byId(errorId);
-      if (!el) return;
-      el.textContent = message;
-      show(el);
-    }
-
-    function clearError(errorId) {
-      hide(byId(errorId));
-    }
-
-    function validate() {
-      var ok = true;
-
-      var nameEl = byId("contact-name");
-      var emailEl = byId("contact-email");
-      var reasonEl = byId("contact-reason");
-      var msgEl = byId("contact-message");
-
-      var name = trimValue(nameEl);
-      var email = trimValue(emailEl);
-      var reason = reasonEl ? reasonEl.value : "";
-      var msg = trimValue(msgEl);
-      var reply = qs('input[name="reply-method"]:checked');
-
-      if (name.length < 2) {
-        setErrorText("contact-name-error", "Please enter your name.");
-        ok = false;
-      } else clearError("contact-name-error");
-
-      if (!isProbablyEmail(email)) {
-        setErrorText("contact-email-error", "Please enter a valid email address.");
-        ok = false;
-      } else clearError("contact-email-error");
-
-      if (!reason) {
-        setErrorText("contact-reason-error", "Please choose a reason for reaching out.");
-        ok = false;
-      } else clearError("contact-reason-error");
-
-      if (!reply) {
-        setErrorText("contact-reply-error", "Please select how you'd like us to reply.");
-        ok = false;
-      } else clearError("contact-reply-error");
-
-      if (msg.length < 10) {
-        setErrorText(
-          "contact-message-error",
-          "Please enter a message (at least 10 characters)."
-        );
-        ok = false;
-      } else clearError("contact-message-error");
-
-      return ok;
-    }
-
-    function onSubmit(e) {
-      e.preventDefault();
-      if (!validate()) return;
-
-      var name = trimValue(byId("contact-name"));
-      alert(
-        "Thank you, " +
-          name +
-          "!\n\n" +
-          "We received your message and will get back to you soon.\n" +
-          "— SweetCrumbs Bakery"
-      );
-      form.reset();
-    }
-
-    form.addEventListener("submit", onSubmit);
-  }
-
-  /* Menu page (menu.html) */
-  function initMenuPage() {
-    var grid = byId("menu-grid");
-    if (!grid) return;
-
-    var cards = qsa(".menu-card", grid);
-    function setActiveButton(filter) {
-      var btns = qsa("[data-menu-filter]");
-      for (var i = 0; i < btns.length; i++) {
-        var isActive = btns[i].getAttribute("data-menu-filter") === filter;
-        btns[i].classList.toggle("is-active", isActive);
-        btns[i].setAttribute("aria-pressed", isActive ? "true" : "false");
+  // When a filter button is clicked, show/hide cards
+  function applyFilter(filterValue) {
+    // Update which button looks active
+    var filterButtons = document.querySelectorAll("[data-menu-filter]");
+    for (var i = 0; i < filterButtons.length; i++) {
+      var btn = filterButtons[i];
+      if (btn.getAttribute("data-menu-filter") === filterValue) {
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-pressed", "true");
+      } else {
+        btn.classList.remove("is-active");
+        btn.setAttribute("aria-pressed", "false");
       }
     }
 
-    function applyFilter(filter) {
-      for (var i = 0; i < cards.length; i++) {
-        var card = cards[i];
-        var category = card.getAttribute("data-category") || "treats";
-        var shouldShow = !filter || filter === "all" || category === filter;
-        card.style.display = shouldShow ? "" : "none";
+    // Show or hide each card based on category
+    for (var j = 0; j < allCards.length; j++) {
+      var card = allCards[j];
+      var cardCategory = card.getAttribute("data-category");
+
+      if (filterValue === "all" || cardCategory === filterValue) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
       }
-      setActiveButton(filter || "all");
     }
+  }
 
-    applyFilter("all");
+  // Start with all cards showing
+  applyFilter("all");
 
-    var controls = qs(".menu-controls");
-    if (controls) {
-      controls.addEventListener("click", function (e) {
-        var target = e.target;
-        if (!target) return;
-        if (!target.matches("[data-menu-filter]")) return;
-
-        var filter = target.getAttribute("data-menu-filter");
+  // Listen for filter button clicks
+  var controlsArea = document.querySelector(".menu-controls");
+  if (controlsArea) {
+    controlsArea.addEventListener("click", function(e) {
+      var clicked = e.target;
+      if (clicked && clicked.hasAttribute("data-menu-filter")) {
+        var filter = clicked.getAttribute("data-menu-filter");
         applyFilter(filter);
-      });
-    }
+      }
+    });
   }
+}
 
-  /* Order page (order.html) */
-  function initOrderPage() {
-    var form = byId("order-form");
-    if (!form) return;
+// ---- Order form validation ----
+function setupOrderForm() {
+  var orderForm = getById("order-form");
+  if (!orderForm) return; // not on order page
 
-    function setVisibleById(id, shouldShow) {
-      var el = byId(id);
-      if (!el) return;
-      if (shouldShow) show(el);
-      else hide(el);
+  orderForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    var isValid = true;
+
+    // Check name
+    var nameVal = getVal(getById("full-name"));
+    if (nameVal === "") {
+      showError("name-error", "Please enter your full name.");
+      isValid = false;
+    } else {
+      clearError("name-error");
     }
 
-    function validateOrderForm() {
-      var name = trimValue(byId("full-name"));
-      var email = trimValue(byId("email"));
-      var phone = trimValue(byId("phone"));
-      var itemType = byId("item-type") ? byId("item-type").value : "";
-      var pickupDate = byId("pickup-date") ? byId("pickup-date").value : "";
-
-      var valid = true;
-
-      if (name === "") valid = false;
-      setVisibleById("name-error", name === "");
-
-      var emailInvalid = email === "" || !isProbablyEmail(email);
-      if (emailInvalid) valid = false;
-      setVisibleById("email-error", emailInvalid);
-
-      if (phone === "") valid = false;
-      setVisibleById("phone-error", phone === "");
-
-      if (itemType === "") valid = false;
-      setVisibleById("item-error", itemType === "");
-
-      if (pickupDate === "") valid = false;
-      setVisibleById("date-error", pickupDate === "");
-
-      return valid;
+    // Check email
+    var emailVal = getVal(getById("email"));
+    if (emailVal === "" || !looksLikeEmail(emailVal)) {
+      showError("email-error", "Please enter a valid email address.");
+      isValid = false;
+    } else {
+      clearError("email-error");
     }
 
-    var itemTypeLabels = {
-      "custom-cake": "Custom Cake",
-      cupcakes: "Cupcakes (Dozen)",
-      "pastry-platter": "Pastry Platter",
-      "bread-assortment": "Bread Assortment",
-      other: "Custom Request"
-    };
+    // Check phone
+    var phoneVal = getVal(getById("phone"));
+    if (phoneVal === "") {
+      showError("phone-error", "Please enter a phone number.");
+      isValid = false;
+    } else {
+      clearError("phone-error");
+    }
 
-    function handleSubmit(event) {
-      event.preventDefault();
+    // Check item type
+    var itemTypeEl = getById("item-type");
+    var itemVal = itemTypeEl ? itemTypeEl.value : "";
+    if (itemVal === "") {
+      showError("item-error", "Please select an item type.");
+      isValid = false;
+    } else {
+      clearError("item-error");
+    }
 
-      if (!validateOrderForm()) return;
+    // Check pickup date
+    var dateEl = getById("pickup-date");
+    var dateVal = dateEl ? dateEl.value : "";
+    if (dateVal === "") {
+      showError("date-error", "Please select a pickup date.");
+      isValid = false;
+    } else {
+      clearError("date-error");
+    }
 
-      var selectedEl = byId("item-type");
-      var selectedValue = selectedEl ? selectedEl.value : "";
-      var friendlyLabel = itemTypeLabels[selectedValue] || "Order";
-
-      var customerName = trimValue(byId("full-name"));
-
-      var dateEl = byId("pickup-date");
-      var pickupDate = dateEl ? dateEl.value : "";
-
+    // If everything looks good, show a thank you message
+    if (isValid) {
+      var friendlyName = itemNames[itemVal] || "Order";
       alert(
-        "Thank you, " +
-          customerName +
-          "! \n\n" +
-          "Your request for a " +
-          friendlyLabel +
-          " has been received.\n" +
-          "Requested pickup: " +
-          pickupDate +
-          "\n\n" +
-          "We'll be in touch within 24 hours to confirm your order.\n" +
-          "— Sweet Crumb Bakery"
+        "Thank you, " + nameVal + "!\n\n" +
+        "Your request for a " + friendlyName + " has been received.\n" +
+        "Requested pickup: " + dateVal + "\n\n" +
+        "We'll be in touch within 24 hours to confirm your order.\n" +
+        "— Sweet Crumb Bakery"
       );
+      orderForm.reset();
+    }
+  });
+}
 
-      form.reset();
+// ---- Contact form validation ----
+function setupContactForm() {
+  var contactForm = getById("contact-form");
+  if (!contactForm) return; // not on contact page
+
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    var isValid = true;
+
+    // Check name
+    var nameVal = getVal(getById("contact-name"));
+    if (nameVal.length < 2) {
+      showError("contact-name-error", "Please enter your name.");
+      isValid = false;
+    } else {
+      clearError("contact-name-error");
     }
 
-    form.addEventListener("submit", handleSubmit);
-  }
+    // Check email
+    var emailVal = getVal(getById("contact-email"));
+    if (!looksLikeEmail(emailVal)) {
+      showError("contact-email-error", "Please enter a valid email address.");
+      isValid = false;
+    } else {
+      clearError("contact-email-error");
+    }
 
-  /* App bootstrap */
-  function init() {
-    markActiveNavLink();
-    setBodyOffsetForFixedHeader();
-    addBackToTop();
+    // Check reason dropdown
+    var reasonEl = getById("contact-reason");
+    var reasonVal = reasonEl ? reasonEl.value : "";
+    if (reasonVal === "") {
+      showError("contact-reason-error", "Please choose a reason for reaching out.");
+      isValid = false;
+    } else {
+      clearError("contact-reason-error");
+    }
 
-    initMenuPage();
-    initOrderPage();
-    initContactPage();
-  }
+    // Check reply method radio
+    var replyPicked = document.querySelector('input[name="reply-method"]:checked');
+    if (!replyPicked) {
+      showError("contact-reply-error", "Please select how you'd like us to reply.");
+      isValid = false;
+    } else {
+      clearError("contact-reply-error");
+    }
 
-  window.addEventListener("load", setBodyOffsetForFixedHeader);
-  window.addEventListener("resize", setBodyOffsetForFixedHeader);
-  document.addEventListener("DOMContentLoaded", init);
-})();
+    // Check message
+    var messageVal = getVal(getById("contact-message"));
+    if (messageVal.length < 10) {
+      showError("contact-message-error", "Please enter a message (at least 10 characters).");
+      isValid = false;
+    } else {
+      clearError("contact-message-error");
+    }
 
+    // If all good, show thank you
+    if (isValid) {
+      alert(
+        "Thank you, " + nameVal + "!\n\n" +
+        "We received your message and will get back to you soon.\n" +
+        "— SweetCrumbs Bakery"
+      );
+      contactForm.reset();
+    }
+  });
+}
+
+// ---- Run everything when the page is ready ----
+document.addEventListener("DOMContentLoaded", function() {
+  markActiveNav();
+  fixHeaderPadding();
+  setupMenuFilters();
+  setupOrderForm();
+  setupContactForm();
+});
+
+// Also fix padding if the window is resized (the header might change height)
+window.addEventListener("resize", fixHeaderPadding);
+window.addEventListener("load", fixHeaderPadding);

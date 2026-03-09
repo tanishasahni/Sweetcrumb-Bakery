@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <title>SweetCrumbs Bakery | Custom Order Form</title>
 </head>
-<body>
+<body class="sticky-footer-page">
 
   <!-- Header -->
   <header>
@@ -28,98 +28,98 @@
   </header>
 
   <!-- Main content -->
-  <main class="container container--narrow">
-    <!-- Page title + intro -->
+  <main class="main-content container container--narrow">
+
     <h1 class="page-title">Order Request Form</h1>
     <p class="subhead">All orders require at least <strong>48 hours advance notice</strong>. Custom cakes need 5–7 days.<br>
     Fill out the form below and we'll reach out to confirm the details.</p>
 
-    <!-- Order form panel -->
+    <!-- Order form -->
     <section class="panel">
       <h2 class="section-title">Order details</h2>
       <form id="order-form" class="form" novalidate>
 
-      <!-- Contact info -->
-      <div class="form-grid">
-        <div class="field">
-          <label for="full-name">Name</label>
-          <input type="text" id="full-name" name="full-name" placeholder="" />
-          <span class="error-msg" id="name-error">Please enter your full name.</span>
-        </div>
-
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="" />
-          <span class="error-msg" id="email-error">Please enter a valid email address.</span>
-        </div>
-      </div>
-
-      <!-- Pickup details -->
-      <div class="form-grid">
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="" />
-          <span class="error-msg" id="phone-error">Please enter a phone number.</span>
-        </div>
-
-        <div class="field">
-          <label for="pickup-date">Requested Pickup Date</label>
-          <input type="date" id="pickup-date" name="pickup-date" />
-          <span class="error-msg" id="date-error">Please select a pickup date.</span>
-        </div>
-      </div>
-
-      <!-- What they're ordering -->
-      <div class="field">
-        <label for="item-type">What would you like to order?</label>
-        <select id="item-type" name="item-type">
-          <option value="">Select an item</option>
-          <option value="custom-cake">Custom Cake</option>
-          <option value="cupcakes">Cupcakes (Dozen)</option>
-          <option value="pastry-platter">Pastry Platter</option>
-          <option value="bread-assortment">Bread Assortment</option>
-          <option value="other">Other</option>
-        </select>
-        <span class="error-msg" id="item-error">Please select an item type.</span>
-      </div>
-
-      <!-- Optional add-ons -->
-      <div class="field">
-        <label>Add-ons (select all that apply)</label>
-        <div class="checkbox-group">
-          <div class="checkline">
-            <input type="checkbox" name="addons" value="candles" id="cb-candles" />
-            <label for="cb-candles">Birthday Candles</label>
+        <!-- Name and email -->
+        <div class="form-grid">
+          <div class="field">
+            <label for="full-name">Name</label>
+            <input type="text" id="full-name" name="full-name" placeholder="" />
+            <span class="error-msg" id="name-error">Please enter your full name.</span>
           </div>
-          <div class="checkline">
-            <input type="checkbox" name="addons" value="message" id="cb-message" />
-            <label for="cb-message">Custom Message on Cake</label>
-          </div>
-          <div class="checkline">
-            <input type="checkbox" name="addons" value="gluten-free" id="cb-gf" />
-            <label for="cb-gf">Gluten-Free Option</label>
-          </div>
-          <div class="checkline">
-            <input type="checkbox" name="addons" value="vegan" id="cb-vegan" />
-            <label for="cb-vegan">Vegan Option</label>
+
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="" />
+            <span class="error-msg" id="email-error">Please enter a valid email address.</span>
           </div>
         </div>
-      </div>
 
-      <!-- Special instructions -->
-      <div class="field">
-        <label for="special-instructions">Special Instructions / Notes</label>
-        <textarea id="special-instructions" name="special-instructions" rows="6"
-          placeholder=""></textarea>
-      </div>
+        <!-- Phone and pickup date -->
+        <div class="form-grid">
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="" />
+            <span class="error-msg" id="phone-error">Please enter a phone number.</span>
+          </div>
 
-      <!-- Submit -->
-      <div class="submit-row">
-        <button type="submit" class="btn btn--primary">Submit Order</button>
-      </div>
+          <div class="field">
+            <label for="pickup-date">Requested Pickup Date</label>
+            <input type="date" id="pickup-date" name="pickup-date" />
+            <span class="error-msg" id="date-error">Please select a pickup date.</span>
+          </div>
+        </div>
 
-    </form>
+        <!-- What they want -->
+        <div class="field">
+          <label for="item-type">What would you like to order?</label>
+          <select id="item-type" name="item-type">
+            <option value="">Select an item</option>
+            <option value="custom-cake">Custom Cake</option>
+            <option value="cupcakes">Cupcakes (Dozen)</option>
+            <option value="pastry-platter">Pastry Platter</option>
+            <option value="bread-assortment">Bread Assortment</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="error-msg" id="item-error">Please select an item type.</span>
+        </div>
+
+        <!-- Optional add-ons -->
+        <div class="field">
+          <label>Add-ons (select all that apply)</label>
+          <div class="checkbox-group">
+            <div class="checkline">
+              <input type="checkbox" name="addons" value="candles" id="cb-candles" />
+              <label for="cb-candles">Birthday Candles</label>
+            </div>
+            <div class="checkline">
+              <input type="checkbox" name="addons" value="message" id="cb-message" />
+              <label for="cb-message">Custom Message on Cake</label>
+            </div>
+            <div class="checkline">
+              <input type="checkbox" name="addons" value="gluten-free" id="cb-gf" />
+              <label for="cb-gf">Gluten-Free Option</label>
+            </div>
+            <div class="checkline">
+              <input type="checkbox" name="addons" value="vegan" id="cb-vegan" />
+              <label for="cb-vegan">Vegan Option</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special notes -->
+        <div class="field">
+          <label for="special-instructions">Special Instructions / Notes</label>
+          <textarea id="special-instructions" name="special-instructions" rows="6" placeholder=""></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <div class="submit-row">
+          <button type="submit" class="btn btn--primary">Submit Order</button>
+        </div>
+
+      </form>
     </section>
+
   </main>
 
   <!-- Footer -->
@@ -132,7 +132,6 @@
     </p>
   </footer>
 
-  <!-- Page scripts -->
   <script src="site.js"></script>
 
 </body>

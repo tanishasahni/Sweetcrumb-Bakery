@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <title>SweetCrumbs Bakery | Menu</title>
 </head>
-<body>
+<body class="sticky-footer-page">
 
   <!-- Header -->
   <header>
@@ -27,17 +27,15 @@
     </nav>
   </header>
 
-  <!-- Page hero -->
-  <section class="page-hero">
-    <div class="container">
-      <h1>Today’s Menu</h1>
-      <p>Browse our core favorites. Seasonal items rotate weekly, so ask in-store for what’s fresh out of the oven.</p>
-    </div>
-  </section>
+
 
   <!-- Main content -->
-  <main class="container">
-    <!-- Category filters -->
+  <main class="main-content container">
+
+    <h1 class="page-title">Today's Menu</h1>
+    <p class="subhead">Browse our core favorites. Seasonal items rotate weekly, so ask in-store for what's fresh out of the oven.</p>
+
+    <!-- Category filter buttons -->
     <h2 class="section-title is-centered">Filter by Category</h2>
 
     <div class="menu-controls" aria-label="Menu category filters">
@@ -48,8 +46,9 @@
       <button type="button" class="chip" data-menu-filter="treats" aria-pressed="false">Treats</button>
     </div>
 
-    <!-- Menu item cards (hard-coded) -->
+    <!-- Menu item cards -->
     <section id="menu-grid" class="menu-grid" aria-label="Menu items">
+
       <article class="menu-card" data-category="pastries">
         <img src="images/Croissant.jpg" alt="Butter croissant" />
         <div class="menu-card-body">
@@ -62,7 +61,7 @@
       </article>
 
       <article class="menu-card" data-category="pastries">
-        <img src="images/placeholder-food.svg" alt="Cinnamon roll" />
+        <img src="images/cupcakes.jpg" alt="Cinnamon roll" />
         <div class="menu-card-body">
           <div class="menu-card-top">
             <h3>Cinnamon Roll</h3>
@@ -73,7 +72,7 @@
       </article>
 
       <article class="menu-card" data-category="bread">
-        <img src="images/placeholder-food.svg" alt="Sourdough loaf" />
+        <img src="images/Croissant.jpg" alt="Sourdough loaf" />
         <div class="menu-card-body">
           <div class="menu-card-top">
             <h3>Sourdough Loaf</h3>
@@ -84,7 +83,7 @@
       </article>
 
       <article class="menu-card" data-category="bread">
-        <img src="images/placeholder-food.svg" alt="Rosemary focaccia" />
+        <img src="images/Croissant.jpg" alt="Rosemary focaccia" />
         <div class="menu-card-body">
           <div class="menu-card-top">
             <h3>Rosemary Focaccia</h3>
@@ -95,7 +94,7 @@
       </article>
 
       <article class="menu-card" data-category="treats">
-        <img src="images/placeholder-food.svg" alt="Chocolate chip cookie" />
+        <img src="images/cupcakes.jpg" alt="Chocolate chip cookie" />
         <div class="menu-card-body">
           <div class="menu-card-top">
             <h3>Chocolate Chip Cookie</h3>
@@ -106,7 +105,7 @@
       </article>
 
       <article class="menu-card" data-category="treats">
-        <img src="images/placeholder-food.svg" alt="Brownie" />
+        <img src="images/Choco_Cake.jpg" alt="Brownie" />
         <div class="menu-card-body">
           <div class="menu-card-top">
             <h3>Brownie</h3>
@@ -128,16 +127,18 @@
       </article>
 
       <article class="menu-card" data-category="cakes">
-        <img src="images/Choco_Cake.jpg" alt="Triple Chocolate Cak" />
+        <img src="images/Choco_Cake.jpg" alt="Triple Chocolate Cake" />
         <div class="menu-card-body">
           <div class="menu-card-top">
-            <h3>Triple Chocolate Cak</h3>
+            <h3>Triple Chocolate Cake</h3>
             <span class="price">$48+</span>
           </div>
           <p>Custom colors + message available.</p>
         </div>
       </article>
+
     </section>
+
   </main>
 
   <!-- Footer -->
@@ -150,7 +151,6 @@
     </p>
   </footer>
 
-  <!-- Page scripts -->
   <script src="site.js"></script>
 </body>
 </html>
