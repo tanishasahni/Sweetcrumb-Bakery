@@ -4,19 +4,19 @@
       "name": "Butter Croissant",
       "description": "Golden, flaky, and buttery — our most popular morning pastry.",
       "image": "images/placeholder-food.svg",
-      "alt": "Butter croissant (placeholder image)"
+      "alt": "Butter croissant"
     },
     {
       "name": "Triple Chocolate Cake",
       "description": "Three layers of rich chocolate with ganache frosting.",
       "image": "images/placeholder-food.svg",
-      "alt": "Chocolate cake (placeholder image)"
+      "alt": "Chocolate cake"
     },
     {
       "name": "Vanilla Cupcakes",
       "description": "Fluffy vanilla cupcakes topped with buttercream and rainbow sprinkles.",
       "image": "images/placeholder-food.svg",
-      "alt": "Vanilla cupcakes (placeholder image)"
+      "alt": "Vanilla cupcakes"
     }
   ],
   "reviews": [
@@ -40,7 +40,7 @@
       "category": "pastries",
       "desc": "Flaky layers, baked fresh daily.",
       "image": "images/placeholder-food.svg",
-      "alt": "Butter croissant (placeholder image)"
+      "alt": "Butter croissant"
     },
     {
       "name": "Cinnamon Roll",
@@ -48,7 +48,7 @@
       "category": "pastries",
       "desc": "Brown sugar swirl, vanilla glaze.",
       "image": "images/placeholder-food.svg",
-      "alt": "Cinnamon roll (placeholder image)"
+      "alt": "Cinnamon roll"
     },
     {
       "name": "Sourdough Loaf",
@@ -56,7 +56,7 @@
       "category": "bread",
       "desc": "Naturally leavened, 24-hour ferment.",
       "image": "images/Sourdough.jpg",
-      "alt": "Sourdough loaf (placeholder image)"
+      "alt": "Sourdough loaf"
     },
     {
       "name": "Rosemary Focaccia",
@@ -64,23 +64,23 @@
       "category": "bread",
       "desc": "Olive oil, flaky salt, rosemary.",
       "image": "images/placeholder-food.svg",
-      "alt": "Rosemary focaccia (placeholder image)"
+      "alt": "Rosemary focaccia"
     },
     {
       "name": "Chocolate Chip Cookie",
       "price": "$2.75",
       "category": "treats",
       "desc": "Crisp edges, soft center.",
-      "image": "images/placeholder-food.svg",
-      "alt": "Chocolate chip cookie (placeholder image)"
+      "image": "images/Cookie.jpg",
+      "alt": "Chocolate chip cookie"
     },
     {
-      "name": "Brownie (GF option)",
+      "name": "Brownie",
       "price": "$3.75",
       "category": "treats",
-      "desc": "Fudgy + rich. Ask about gluten-free.",
+      "desc": "Fudgy and rich.",
       "image": "images/placeholder-food.svg",
-      "alt": "Brownie (placeholder image)"
+      "alt": "Brownie"
     },
     {
       "name": "Vanilla Cupcake (single)",
@@ -88,7 +88,7 @@
       "category": "cakes",
       "desc": "Vanilla or chocolate with buttercream.",
       "image": "images/placeholder-food.svg",
-      "alt": "Cupcake (placeholder image)"
+      "alt": "Cupcake"
     },
     {
       "name": "Triple Chocolate Cake",
@@ -96,7 +96,7 @@
       "category": "cakes",
       "desc": "Three layers of rich chocolate with ganache frosting.",
       "image": "images/placeholder-food.svg",
-      "alt": "Celebration cake (placeholder image)"
+      "alt": "Celebration cake"
     }
   ]
 }
