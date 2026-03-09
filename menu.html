@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- menu page -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="keywords" content="bakery menu, pastries, cakes, bread, SweetCrumbs" />
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <title>SweetCrumbs Bakery | Menu</title>
 </head>
 <body class="sticky-footer-page">
 
-  <!-- Header -->
+  <!-- site header -->
   <header>
     <div class="logo">
       <a href="index.html">SweetCrumbs Bakery</a>
@@ -17,7 +18,7 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="menu.html">Menu</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
         <li><a href="order.html">Order</a></li>
         <li><a href="catering.html">Catering</a></li>
         <li><a href="about.html">About</a></li>
@@ -27,15 +28,13 @@
     </nav>
   </header>
 
-
-
-  <!-- Main content -->
+  <!-- main content -->
   <main class="main-content container">
 
     <h1 class="page-title">Today's Menu</h1>
     <p class="subhead">Browse our core favorites. Seasonal items rotate weekly, so ask in-store for what's fresh out of the oven.</p>
 
-    <!-- Filter by Category -->
+    <!-- category filters -->
     <h2 class="section-title is-centered">Filter by Category</h2>
 
     <div class="menu-controls" aria-label="Menu category filters">
@@ -46,111 +45,79 @@
       <button type="button" class="chip" data-menu-filter="treats" aria-pressed="false">Treats</button>
     </div>
 
-    <!-- Menu items -->
+    <!-- menu grid section -->
     <section id="menu-grid" class="menu-grid" aria-label="Menu items">
-
       <article class="menu-card" data-category="pastries">
         <img src="images/Croissant.jpg" alt="Butter croissant" />
         <div class="menu-card-body">
-          <div class="menu-card-top">
-            <h3>Butter Croissant</h3>
-            <span class="price">$4.25</span>
-          </div>
+          <div class="menu-card-top"><h3>Butter Croissant</h3><span class="price">$4.25</span></div>
           <p>Flaky layers, baked fresh daily.</p>
         </div>
       </article>
-
       <article class="menu-card" data-category="pastries">
         <img src="images/Cinnamon_Roll.jpg" alt="Cinnamon roll" />
         <div class="menu-card-body">
-          <div class="menu-card-top">
-            <h3>Cinnamon Roll</h3>
-            <span class="price">$4.95</span>
-          </div>
+          <div class="menu-card-top"><h3>Cinnamon Roll</h3><span class="price">$4.95</span></div>
           <p>Brown sugar swirl with vanilla glaze.</p>
         </div>
       </article>
-
       <article class="menu-card" data-category="bread">
         <img src="images/Sourdough.jpg" alt="Sourdough loaf" />
         <div class="menu-card-body">
-          <div class="menu-card-top">
-            <h3>Sourdough Loaf</h3>
-            <span class="price">$8.00</span>
-          </div>
+          <div class="menu-card-top"><h3>Sourdough Loaf</h3><span class="price">$8.00</span></div>
           <p>Naturally leavened, 24-hour ferment.</p>
         </div>
       </article>
-
       <article class="menu-card" data-category="bread">
         <img src="images/Focaccia.jpg" alt="Rosemary focaccia" />
         <div class="menu-card-body">
-          <div class="menu-card-top">
-            <h3>Rosemary Focaccia</h3>
-            <span class="price">$6.50</span>
-          </div>
+          <div class="menu-card-top"><h3>Rosemary Focaccia</h3><span class="price">$6.50</span></div>
           <p>Olive oil, flaky salt, rosemary.</p>
         </div>
       </article>
-
       <article class="menu-card" data-category="treats">
         <img src="images/Cookie.jpg" alt="Chocolate chip cookie" />
         <div class="menu-card-body">
-          <div class="menu-card-top">
-            <h3>Chocolate Chip Cookie</h3>
-            <span class="price">$2.75</span>
-          </div>
+          <div class="menu-card-top"><h3>Chocolate Chip Cookie</h3><span class="price">$2.75</span></div>
           <p>Crisp edges, soft center.</p>
         </div>
       </article>
-
       <article class="menu-card" data-category="treats">
         <img src="images/Brownie.jpg" alt="Brownie" />
         <div class="menu-card-body">
-          <div class="menu-card-top">
-            <h3>Brownie</h3>
-            <span class="price">$3.75</span>
-          </div>
+          <div class="menu-card-top"><h3>Brownie</h3><span class="price">$3.75</span></div>
           <p>Fudgy and rich.</p>
         </div>
       </article>
-
       <article class="menu-card" data-category="cakes">
-        <img src="images/cupcakes.jpg" alt="Vanilla cupcake" />
+        <img src="images/cupcakes.jpg" alt="Cupcake" />
         <div class="menu-card-body">
-          <div class="menu-card-top">
-            <h3>Vanilla Cupcake (single)</h3>
-            <span class="price">$3.95</span>
-          </div>
-          <p>Vanilla cupcakes with buttercream.</p>
+          <div class="menu-card-top"><h3>Vanilla Cupcake (single)</h3><span class="price">$3.95</span></div>
+          <p>Vanilla or chocolate with buttercream.</p>
         </div>
       </article>
-
       <article class="menu-card" data-category="cakes">
-        <img src="images/Choco_Cake.jpg" alt="Triple Chocolate Cake" />
+        <img src="images/Choco_Cake.jpg" alt="Celebration cake" />
         <div class="menu-card-body">
-          <div class="menu-card-top">
-            <h3>Triple Chocolate Cake</h3>
-            <span class="price">$48+</span>
-          </div>
-          <p>Custom colors + message available.</p>
+          <div class="menu-card-top"><h3>Triple Chocolate Cake</h3><span class="price">$48+</span></div>
+          <p>Three layers of rich chocolate with ganache frosting.</p>
         </div>
       </article>
-
     </section>
 
   </main>
 
-  <!-- Footer -->
+  <!-- site footer -->
   <footer class="footer">
     <a href="index.html">SweetCrumbs Bakery</a>
     <p>
-      <strong>Hours:</strong> Tue–Sun, 7am–3pm<br>
+      <strong>Hours:</strong> Tue-Sun, 7am-3pm<br>
       <strong>Phone:</strong> (973) 555-0100<br>
       <strong>Email:</strong> sweetcrumbs@gmail.com
     </p>
   </footer>
 
-  <script src="site.js"></script>
+  <!-- site scripts -->
+  <script src="js/menu.js"></script>
 </body>
 </html>
