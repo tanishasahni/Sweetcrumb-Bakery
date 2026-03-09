@@ -1,8 +1,6 @@
-// SweetCrumbs Bakery - site.js
 // This file runs on every page of the site
 
-// ---- Associative array (object used like a dictionary) ----
-// This maps the order form item values to friendly display names
+// Associative array to map the order form item values to display names
 var itemNames = {
   "custom-cake": "Custom Cake",
   "cupcakes": "Cupcakes (Dozen)",
@@ -11,7 +9,7 @@ var itemNames = {
   "other": "Custom Request"
 };
 
-// ---- Homegrown object (like a blueprint for a bakery item) ----
+// BakeryItem
 function BakeryItem(name, price, category) {
   this.name = name;
   this.price = price;
@@ -26,8 +24,6 @@ function BakeryItem(name, price, category) {
 var featuredCroissant = new BakeryItem("Butter Croissant", "$4.25", "pastries");
 var featuredCake = new BakeryItem("Triple Chocolate Cake", "$48+", "cakes");
 var featuredCupcake = new BakeryItem("Vanilla Cupcake", "$3.95", "cakes");
-
-// ---- Helper functions ----
 
 // Gets an element by its id
 function getById(id) {
@@ -56,7 +52,7 @@ function getVal(el) {
   return "";
 }
 
-// Basic check if an email looks valid
+// Check if an email looks valid
 function looksLikeEmail(email) {
   if (email.indexOf("@") !== -1 && email.indexOf(".") !== -1) {
     return true;
@@ -64,7 +60,7 @@ function looksLikeEmail(email) {
   return false;
 }
 
-// Shows an error message for a form field
+// Shows an error message
 function showError(errorId, message) {
   var errorEl = getById(errorId);
   if (errorEl) {
@@ -89,8 +85,7 @@ function getCurrentPage() {
   return pageName;
 }
 
-// ---- Active nav link ----
-// Highlights the current page in the nav menu
+// Highlights current page in the nav menu
 function markActiveNav() {
   var currentPage = getCurrentPage();
   var navLinks = document.querySelectorAll("header nav a");
@@ -104,8 +99,8 @@ function markActiveNav() {
   }
 }
 
-// ---- Fix header padding ----
-// Makes sure the page content isn't hidden behind the fixed header
+// Header padding
+// Page content should not be hidden behind header
 function fixHeaderPadding() {
   var header = document.querySelector("header");
   if (!header) return;
@@ -114,14 +109,14 @@ function fixHeaderPadding() {
   document.body.style.paddingTop = Math.ceil(headerHeight) + "px";
 }
 
-// ---- Menu page filter buttons ----
+// Menu page filter buttons
 function setupMenuFilters() {
   var menuGrid = getById("menu-grid");
-  if (!menuGrid) return; // not on menu page, stop here
+  if (!menuGrid) return; // if not on menu page, stop
 
   var allCards = menuGrid.querySelectorAll(".menu-card");
 
-  // When a filter button is clicked, show/hide cards
+  // When a filter button is clicked, show or hide cards
   function applyFilter(filterValue) {
     // Update which button looks active
     var filterButtons = document.querySelectorAll("[data-menu-filter]");
@@ -152,7 +147,7 @@ function setupMenuFilters() {
   // Start with all cards showing
   applyFilter("all");
 
-  // Listen for filter button clicks
+  // Filter button clicks
   var controlsArea = document.querySelector(".menu-controls");
   if (controlsArea) {
     controlsArea.addEventListener("click", function(e) {
@@ -165,7 +160,7 @@ function setupMenuFilters() {
   }
 }
 
-// ---- Order form validation ----
+// Validate order form
 function setupOrderForm() {
   var orderForm = getById("order-form");
   if (!orderForm) return; // not on order page
@@ -202,7 +197,7 @@ function setupOrderForm() {
       clearError("phone-error");
     }
 
-    // Check item type
+    // Check item
     var itemTypeEl = getById("item-type");
     var itemVal = itemTypeEl ? itemTypeEl.value : "";
     if (itemVal === "") {
@@ -222,7 +217,7 @@ function setupOrderForm() {
       clearError("date-error");
     }
 
-    // If everything looks good, show a thank you message
+    // If valid, say thank you
     if (isValid) {
       var friendlyName = itemNames[itemVal] || "Order";
       alert(
@@ -237,7 +232,7 @@ function setupOrderForm() {
   });
 }
 
-// ---- Contact form validation ----
+// Validate contact form
 function setupContactForm() {
   var contactForm = getById("contact-form");
   if (!contactForm) return; // not on contact page
@@ -265,7 +260,7 @@ function setupContactForm() {
       clearError("contact-email-error");
     }
 
-    // Check reason dropdown
+    // Check reason
     var reasonEl = getById("contact-reason");
     var reasonVal = reasonEl ? reasonEl.value : "";
     if (reasonVal === "") {
@@ -275,7 +270,7 @@ function setupContactForm() {
       clearError("contact-reason-error");
     }
 
-    // Check reply method radio
+    // Check reply
     var replyPicked = document.querySelector('input[name="reply-method"]:checked');
     if (!replyPicked) {
       showError("contact-reply-error", "Please select how you'd like us to reply.");
@@ -293,7 +288,7 @@ function setupContactForm() {
       clearError("contact-message-error");
     }
 
-    // If all good, show thank you
+    // If valid, say thank you
     if (isValid) {
       alert(
         "Thank you, " + nameVal + "!\n\n" +
@@ -305,7 +300,7 @@ function setupContactForm() {
   });
 }
 
-// ---- Run everything when the page is ready ----
+// Run everything when the page is ready
 document.addEventListener("DOMContentLoaded", function() {
   markActiveNav();
   fixHeaderPadding();
@@ -314,6 +309,6 @@ document.addEventListener("DOMContentLoaded", function() {
   setupContactForm();
 });
 
-// Also fix padding if the window is resized (the header might change height)
+// Fix padding if the window is resized
 window.addEventListener("resize", fixHeaderPadding);
 window.addEventListener("load", fixHeaderPadding);
