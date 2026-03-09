@@ -107,11 +107,7 @@ a { color: inherit; }
 .card li { margin: 6px 0; }
 .card ul + p { margin-top: 12px; }
 
-.card:hover,
-.menu-card:hover,
-.item-col:hover {
-  transform: translateY(-1px);
-}
+
 
 @media (prefers-reduced-motion: reduce) {
   .card:hover,
