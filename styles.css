@@ -131,14 +131,6 @@ header {
   border-bottom: 1px solid rgba(93, 64, 55, 0.10);
 }
 
-/* Backdrop blur support */
-@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-  header {
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-  }
-}
-
 header .logo a {
   font-size: 1.45rem;
   font-weight: 800;
